@@ -37,7 +37,7 @@ export default function AccountsData({
         ))}
       </ul>
 
-      <div className="lg:w-1/2 flex justify-center py-8">
+      <div className="lg:w-1/2 flex justify-center">
         <PieChart
           data={{
             labels: accounts?.accounts.map((account) => account.name),

@@ -16,7 +16,7 @@ export function Collapsable({ title, children }: CollapsableProps) {
   return (
     <div className="flex flex-col justify-center bg-white m-2 p-4 rounded-lg md:mx-28 lg:mx-64">
       <div className="flex justify-between items-center">
-        <span className="flex items-center gap-2 text-lg font-semibold">
+        <span className="flex items-center gap-2 text-lg font-semibold tracking-wider">
           {title}
         </span>
 
