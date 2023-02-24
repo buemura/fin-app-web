@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { accountService } from "../../../services/http/account-service";
-import { useUserStore } from "../../../stores/user";
-import { IAccount } from "../../../types/Account";
-import { Modal } from "../../Modal";
-import { ModalInput } from "../../Modal/Input";
+import { accountService } from "../../../../services/http/account-service";
+import { useUserStore } from "../../../../stores/user";
+import { IAccount } from "../../../../types/Account";
+import { Modal } from "../../../common/Modal";
+import { ModalInput } from "../../../common/Modal/Input";
 
 interface ModalUpdateAccountProps {
   isModalOpen: boolean;

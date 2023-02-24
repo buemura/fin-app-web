@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 import { accountService } from "../services/http/account-service";
 import { IAccounts } from "../types/Account";

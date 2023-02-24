@@ -3,8 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 
 import { useUserStore } from "../../../stores/user";
 import { userService } from "../../../services/http/user-service";
-import { Input } from "../../../components/AuthForm/Input";
-import { Button } from "../../../components/AuthForm/Button";
+import { Input } from "../../../components/features/AuthForm/Input";
+import { Button } from "../../../components/features/AuthForm/Button";
 
 export default function Login() {
   const navigate = useNavigate();

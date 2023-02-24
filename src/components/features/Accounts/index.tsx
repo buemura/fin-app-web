@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { FaPlusCircle } from "react-icons/fa";
-import { IAccounts } from "../../types/Account";
-import { LoaderSpinner } from "../Loader";
+import { IAccounts } from "../../../types/Account";
+import { LoaderSpinner } from "../../common/Loader";
 import Account from "./components/Account";
 import ModalNewAccount from "./components/ModalNewAccount";
 import TotalBalance from "./components/TotalBalance";

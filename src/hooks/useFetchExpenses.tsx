@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 import { expenseService } from "../services/http/expense-service";
 import { IExpense } from "../types/Expense";

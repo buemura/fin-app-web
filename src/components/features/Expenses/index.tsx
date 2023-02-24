@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { FaPlusCircle } from "react-icons/fa";
 
-import { IExpense } from "../../types/Expense";
+import { IExpense } from "../../../types/Expense";
 import { Expense } from "./components/Expense";
-import { LoaderSpinner } from "../Loader";
+import { LoaderSpinner } from "../../common/Loader";
 import ModalNewExpense from "./components/ModalNewExpense";
 
 interface ExpensesProps {

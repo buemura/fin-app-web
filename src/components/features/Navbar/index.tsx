@@ -1,5 +1,5 @@
-import { useUserStore } from "../../stores/user";
-import { User } from "../../types/User";
+import { useUserStore } from "../../../stores/user";
+import { User } from "../../../types/User";
 import SignOutButton from "./SignoutButton";
 
 interface NavbarProps {
