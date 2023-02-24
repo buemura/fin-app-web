@@ -8,5 +8,5 @@ interface DoughnutChartProps {
 }
 
 export default function DoughnutChart({ data }: DoughnutChartProps) {
-  return <Doughnut data={data} />;
+  return <Doughnut className="w-full h-full" data={data} />;
 }

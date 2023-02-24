@@ -11,6 +11,7 @@ import {
   borderColor,
 } from "../../common/Charts/helpers/constants";
 import AccountsData from "./components/AccountsData";
+import { Collapsable } from "../../common/Collapsable";
 
 interface AccountsProps {
   accounts: IAccounts | null;
@@ -21,18 +22,16 @@ export default function Accounts({ accounts, isLoading }: AccountsProps) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <div className="flex flex-col justify-center bg-white m-2 p-4 rounded-lg md:mx-28 lg:mx-64">
-      <div className="flex justify-between mb-2">
-        <span className="flex items-center gap-2 text-lg">My accounts</span>
-
+    <Collapsable title="My accounts">
+      <div className="flex justify-end">
         <FaPlusCircle
-          className="text-2xl cursor-pointer text-blue-600 hover:text-blue-700"
+          className="my-4 text-2xl cursor-pointer text-blue-600 hover:text-blue-700"
           onClick={() => setIsModalOpen(true)}
         />
       </div>
 
       <TotalBalance totalBalance={accounts?.totalBalance || 0} />
-      <div className="border border-gray-100" />
+      <div className="border border-gray-100 mb-4" />
 
       <AccountsData isLoading={isLoading} accounts={accounts} />
 
@@ -40,6 +39,6 @@ export default function Accounts({ accounts, isLoading }: AccountsProps) {
         isModalOpen={isModalOpen}
         setIsModalOpen={setIsModalOpen}
       />
-    </div>
+    </Collapsable>
   );
 }

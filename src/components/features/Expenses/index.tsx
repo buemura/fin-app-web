@@ -5,6 +5,7 @@ import { IExpense } from "../../../types/Expense";
 import { Expense } from "./components/Expense";
 import { LoaderSpinner } from "../../common/Loader";
 import ModalNewExpense from "./components/ModalNewExpense";
+import { Collapsable } from "../../common/Collapsable";
 
 interface ExpensesProps {
   expenses: IExpense[] | null;
@@ -15,20 +16,16 @@ export function Expenses({ expenses, isLoading }: ExpensesProps) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <div className="flex flex-col justify-center bg-white m-2 p-4 rounded-lg md:mx-28 lg:mx-64">
-      <div className="flex justify-between">
-        <span className="flex items-center gap-2 text-lg">
-          My recurrent expenses
-        </span>
-
+    <Collapsable title="My recurrent expenses">
+      <div className="flex justify-end">
         <FaPlusCircle
-          className="text-2xl cursor-pointer text-blue-600 hover:text-blue-700"
+          className="my-4 text-2xl cursor-pointer text-blue-600 hover:text-blue-700"
           onClick={() => setIsModalOpen(true)}
         />
       </div>
 
       {isLoading ? (
-        <div className="flex justify-center items-center mt-4">
+        <div className="flex justify-center items-center">
           <LoaderSpinner
             width={50}
             height={50}
@@ -37,7 +34,7 @@ export function Expenses({ expenses, isLoading }: ExpensesProps) {
           />
         </div>
       ) : (
-        <ul className="mt-4">
+        <ul>
           {expenses?.map((expense) => (
             <Expense key={expense.id} expense={expense} />
           ))}
@@ -48,6 +45,6 @@ export function Expenses({ expenses, isLoading }: ExpensesProps) {
         isModalOpen={isModalOpen}
         setIsModalOpen={setIsModalOpen}
       />
-    </div>
+    </Collapsable>
   );
 }
