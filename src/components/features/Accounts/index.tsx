@@ -5,6 +5,12 @@ import { LoaderSpinner } from "../../common/Loader";
 import Account from "./components/Account";
 import ModalNewAccount from "./components/ModalNewAccount";
 import TotalBalance from "./components/TotalBalance";
+import PieChart from "../../common/Charts/PieChart";
+import {
+  backgroundColor,
+  borderColor,
+} from "../../common/Charts/helpers/constants";
+import AccountsData from "./components/AccountsData";
 
 interface AccountsProps {
   accounts: IAccounts | null;
@@ -26,25 +32,9 @@ export default function Accounts({ accounts, isLoading }: AccountsProps) {
       </div>
 
       <TotalBalance totalBalance={accounts?.totalBalance || 0} />
-
       <div className="border border-gray-100" />
 
-      {isLoading ? (
-        <div className="flex justify-center items-center mt-4">
-          <LoaderSpinner
-            width={50}
-            height={50}
-            primaryColor="#2757a3"
-            secondaryColor="#95b8f0"
-          />
-        </div>
-      ) : (
-        <ul>
-          {accounts?.accounts.map((account) => (
-            <Account key={account.id} account={account} />
-          ))}
-        </ul>
-      )}
+      <AccountsData isLoading={isLoading} accounts={accounts} />
 
       <ModalNewAccount
         isModalOpen={isModalOpen}
