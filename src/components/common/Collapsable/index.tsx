@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { SlArrowDown, SlArrowRight } from "react-icons/sl";
+import { SlArrowDown, SlArrowUp } from "react-icons/sl";
 
 interface CollapsableProps {
   title: string;
@@ -21,7 +21,7 @@ export function Collapsable({ title, children }: CollapsableProps) {
         </span>
 
         {isCollapsed ? (
-          <SlArrowRight
+          <SlArrowUp
             className="cursor-pointer"
             onClick={handleChangeCollapse}
           />
