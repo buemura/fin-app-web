@@ -1,9 +1,11 @@
 import { IAccount, IAccounts } from "../../types/Account";
+import { PaginationMetadata } from "../../types/Pagination";
 import { api } from "./api";
 
 type FetchAllProps = {
   userId: string;
   accessToken: string;
+  pagination?: PaginationMetadata;
 };
 
 type CreateProps = {
@@ -30,8 +32,9 @@ type RemoveProps = {
 async function fetchAll({
   userId,
   accessToken,
+  pagination,
 }: FetchAllProps): Promise<IAccounts> {
-  const url = `/accounts/${userId}`;
+  const url = `/accounts/${userId}?page=${pagination?.page}&items=${pagination?.items}`;
   const { data: response } = await api.get(url, {
     headers: { Authorization: `Bearer ${accessToken}` },
   });

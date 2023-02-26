@@ -1,9 +1,11 @@
 import { IExpense } from "../../types/Expense";
+import { PaginationMetadata } from "../../types/Pagination";
 import { api } from "./api";
 
 type FetchAllProps = {
   userId: string;
   accessToken: string;
+  pagination?: PaginationMetadata;
 };
 
 type CreateProps = {
@@ -25,8 +27,9 @@ type UpdateProps = {
 async function fetchAll({
   userId,
   accessToken,
+  pagination,
 }: FetchAllProps): Promise<IExpense[]> {
-  const url = `/expense/${userId}`;
+  const url = `/expense/${userId}?page=${pagination?.page}&items=${pagination?.items}`;
   const { data: response } = await api.get(url, {
     headers: { Authorization: `Bearer ${accessToken}` },
   });

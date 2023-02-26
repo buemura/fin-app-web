@@ -40,11 +40,11 @@ export default function AccountsData({
       <div className="lg:w-1/2 flex justify-center">
         <PieChart
           data={{
-            labels: accounts?.accounts.map((account) => account.name),
+            labels: accounts?.metricsData.map((account) => account.name),
             datasets: [
               {
                 label: "Balance",
-                data: accounts?.accounts.map((account) => account.balance),
+                data: accounts?.metricsData.map((account) => account.balance),
                 backgroundColor: backgroundColor,
                 borderColor: borderColor,
               },

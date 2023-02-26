@@ -12,13 +12,21 @@ import {
 } from "../../common/Charts/helpers/constants";
 import AccountsData from "./components/AccountsData";
 import { Collapsable } from "../../common/Collapsable";
+import { PaginationMetadata } from "../../../types/Pagination";
 
 interface AccountsProps {
   accounts: IAccounts | null;
   isLoading: boolean;
+  accountsPagination: PaginationMetadata;
+  setAccountsPagination: (data: PaginationMetadata) => void;
 }
 
-export default function Accounts({ accounts, isLoading }: AccountsProps) {
+export default function Accounts({
+  accounts,
+  isLoading,
+  accountsPagination,
+  setAccountsPagination,
+}: AccountsProps) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (

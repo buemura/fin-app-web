@@ -6,13 +6,21 @@ import { Expense } from "./components/Expense";
 import { LoaderSpinner } from "../../common/Loader";
 import ModalNewExpense from "./components/ModalNewExpense";
 import { Collapsable } from "../../common/Collapsable";
+import { PaginationMetadata } from "../../../types/Pagination";
 
 interface ExpensesProps {
   expenses: IExpense[] | null;
   isLoading: boolean;
+  expensesPagination: PaginationMetadata;
+  setExpensesPagination: (data: PaginationMetadata) => void;
 }
 
-export function Expenses({ expenses, isLoading }: ExpensesProps) {
+export function Expenses({
+  expenses,
+  isLoading,
+  expensesPagination,
+  setExpensesPagination,
+}: ExpensesProps) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
@@ -34,11 +42,14 @@ export function Expenses({ expenses, isLoading }: ExpensesProps) {
           />
         </div>
       ) : (
-        <ul>
-          {expenses?.map((expense) => (
-            <Expense key={expense.id} expense={expense} />
-          ))}
-        </ul>
+        <>
+          <ul>
+            {expenses?.map((expense) => (
+              <Expense key={expense.id} expense={expense} />
+            ))}
+          </ul>
+          <span></span>
+        </>
       )}
 
       <ModalNewExpense

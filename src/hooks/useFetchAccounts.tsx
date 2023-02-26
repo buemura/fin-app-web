@@ -2,19 +2,26 @@ import { useEffect, useState } from "react";
 
 import { accountService } from "../services/http/account-service";
 import { IAccounts } from "../types/Account";
-import { User } from "../types/User";
+import { ACCOUNTS_DEFAULT_PAGINATION } from "../utils/constants";
+import { IUseFetchProps } from "./types";
 
-export const useFetchAccounts = (user: User | null) => {
+export const useFetchAccounts = ({ user, page, items }: IUseFetchProps) => {
   const [isLoading, setIsLoading] = useState(false);
   const [hasError, setHasError] = useState(false);
   const [accounts, setAccounts] = useState<IAccounts | null>(null);
 
-  const fetchExpenses = async () => {
+  const fetchAccounts = async () => {
+    const pagination = {
+      page: page || ACCOUNTS_DEFAULT_PAGINATION.PAGE,
+      items: items || ACCOUNTS_DEFAULT_PAGINATION.ITEMS,
+    };
+
     try {
       setIsLoading(true);
       const result = await accountService.fetchAll({
         userId: user?.id || "",
         accessToken: user?.accessToken || "",
+        pagination,
       });
       setIsLoading(false);
       setAccounts(result);
@@ -24,7 +31,7 @@ export const useFetchAccounts = (user: User | null) => {
   };
 
   useEffect(() => {
-    fetchExpenses();
+    fetchAccounts();
   }, []);
 
   return { accounts, isLoading, hasError };
