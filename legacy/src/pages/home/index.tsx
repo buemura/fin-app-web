@@ -2,7 +2,6 @@ import { useState } from "react";
 import Accounts from "../../components/features/Accounts";
 import { Expenses } from "../../components/features/Expenses";
 import { Navbar } from "../../components/features/Navbar";
-import { Transactions } from "../../components/features/Transactions";
 import { useCheckAuth } from "../../hooks/useCheckAuth";
 import { useFetchAccounts } from "../../hooks/useFetchAccounts";
 import { useFetchExpenses } from "../../hooks/useFetchExpenses";
