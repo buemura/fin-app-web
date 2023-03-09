@@ -29,7 +29,8 @@ export default function ModalUpdateExpense({
     setIsLoading(true);
 
     await expenseService.update({
-      id: expense.id,
+      userId: user?.id || "",
+      expenseId: expense.id,
       title,
       imageUrl,
       isPaid,

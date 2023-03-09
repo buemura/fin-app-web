@@ -25,7 +25,7 @@ async function login({
   password,
 }: LoginRequestProps): Promise<LoginResponseProps | null> {
   try {
-    const url = `/auth/signin`;
+    const url = `/auth/login`;
     const body = { email, password };
     const { data: response } = await api.post(url, body);
     return response?.data;
@@ -40,7 +40,7 @@ async function register({
   password,
 }: RegisterRequestProps): Promise<RegisterResponseProps | null> {
   try {
-    const url = `/auth/signup`;
+    const url = `/auth/register`;
     const body = { name, email, password };
     const { data: response } = await api.post(url, body);
     return response?.data;

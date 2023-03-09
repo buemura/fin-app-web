@@ -14,7 +14,7 @@ async function getUserData({
   userId,
   accessToken,
 }: GetUserDataRequestProps): Promise<GetUserDataResponseProps | null> {
-  const url = `/user/${userId}`;
+  const url = `/users/${userId}`;
   const { data: response } = await api.get(url, {
     headers: { Authorization: `Bearer ${accessToken}` },
   });

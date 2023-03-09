@@ -17,7 +17,8 @@ type CreateProps = {
 };
 
 type UpdateProps = {
-  id: string;
+  userId: string;
+  accountId: string;
   name: string;
   balance: number;
   icon: string;
@@ -25,7 +26,8 @@ type UpdateProps = {
 };
 
 type RemoveProps = {
-  id: string;
+  userId: string;
+  accountId: string;
   accessToken: string;
 };
 
@@ -34,7 +36,7 @@ async function fetchAll({
   accessToken,
   pagination,
 }: FetchAllProps): Promise<IAccounts> {
-  const url = `/accounts/${userId}?page=${pagination?.page}&items=${pagination?.items}`;
+  const url = `/users/${userId}/accounts?page=${pagination?.page}&items=${pagination?.items}`;
   const { data: response } = await api.get(url, {
     headers: { Authorization: `Bearer ${accessToken}` },
   });
@@ -49,7 +51,7 @@ async function create({
   accessToken,
 }: CreateProps): Promise<any> {
   try {
-    const url = `/account`;
+    const url = `/users/${userId}/accounts`;
     const body = { userId, name, balance, icon };
     const { data: response } = await api.post(url, body, {
       headers: { Authorization: `Bearer ${accessToken}` },
@@ -61,16 +63,17 @@ async function create({
 }
 
 async function update({
-  id,
+  userId,
+  accountId,
   name,
   balance,
   icon,
   accessToken,
 }: UpdateProps): Promise<any> {
   try {
-    const url = `/account/${id}`;
+    const url = `/users/${userId}/accounts/${accountId}`;
     const body = { name, balance, icon };
-    const { data: response } = await api.put(url, body, {
+    const { data: response } = await api.patch(url, body, {
       headers: { Authorization: `Bearer ${accessToken}` },
     });
     return response?.data;
@@ -79,8 +82,12 @@ async function update({
   }
 }
 
-async function remove({ id, accessToken }: RemoveProps): Promise<IAccount[]> {
-  const url = `/account/${id}`;
+async function remove({
+  userId,
+  accountId,
+  accessToken,
+}: RemoveProps): Promise<IAccount[]> {
+  const url = `/users/${userId}/accounts/${accountId}`;
   const { data: response } = await api.delete(url, {
     headers: { Authorization: `Bearer ${accessToken}` },
   });

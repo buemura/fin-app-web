@@ -16,7 +16,8 @@ type CreateProps = {
 };
 
 type UpdateProps = {
-  id: string;
+  userId: string;
+  expenseId: string;
   title: string;
   imageUrl: string;
   isPaid: boolean;
@@ -29,7 +30,7 @@ async function fetchAll({
   accessToken,
   pagination,
 }: FetchAllProps): Promise<IExpense[]> {
-  const url = `/expense/${userId}?page=${pagination?.page}&items=${pagination?.items}`;
+  const url = `/users/${userId}/expenses?page=${pagination?.page}&items=${pagination?.items}`;
   const { data: response } = await api.get(url, {
     headers: { Authorization: `Bearer ${accessToken}` },
   });
@@ -43,7 +44,7 @@ async function create({
   accessToken,
 }: CreateProps): Promise<any> {
   try {
-    const url = `/expense`;
+    const url = `/users/${userId}/expenses`;
     const body = { title, userId, imageUrl };
     const { data: response } = await api.post(url, body, {
       headers: { Authorization: `Bearer ${accessToken}` },
@@ -55,7 +56,8 @@ async function create({
 }
 
 async function update({
-  id,
+  userId,
+  expenseId,
   title,
   imageUrl,
   isPaid,
@@ -63,9 +65,9 @@ async function update({
   accessToken,
 }: UpdateProps): Promise<any> {
   try {
-    const url = `/expense/${id}`;
+    const url = `/users/${userId}/expenses/${expenseId}`;
     const body = { title, imageUrl, isPaid, isActive };
-    const { data: response } = await api.put(url, body, {
+    const { data: response } = await api.patch(url, body, {
       headers: { Authorization: `Bearer ${accessToken}` },
     });
     return response?.data;

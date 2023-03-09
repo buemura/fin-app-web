@@ -27,7 +27,8 @@ export default function ModalUpdateAccount({
     setIsLoading(true);
 
     await accountService.update({
-      id: account.id,
+      userId: user?.id || "",
+      accountId: account.id,
       name: name,
       balance: balance,
       icon: icon,
