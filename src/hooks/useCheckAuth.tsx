@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import { userService } from "../services/http/user-service";
-import { User } from "../types/User";
+
+import { User } from "@interfaces/user";
+import { userService } from "@services/http/user-service";
 import { useRouterNavigate } from "./useRouterNavigate";
 
 export const useCheckAuth = (user: User | null) => {

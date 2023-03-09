@@ -1,5 +1,5 @@
-import { useUserStore } from "../../../stores/user";
-import { User } from "../../../types/User";
+import { User } from "@interfaces/user";
+import { useUserStore } from "@stores/user";
 import ProfileImage from "./components/ProfileImage";
 import SignOutButton from "./components/SignoutButton";
 

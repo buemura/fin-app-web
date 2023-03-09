@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import { ACCOUNTS_DEFAULT_PAGINATION } from "../helpers/constants";
-import { accountService } from "../services/http/account-service";
-import { IAccounts } from "../types/Account";
+
+import { ACCOUNTS_DEFAULT_PAGINATION } from "@helpers/constants";
+import { IAccounts } from "@interfaces/account";
+import { accountService } from "@services/http/account-service";
 import { IUseFetchProps } from "./types";
 
 export const useFetchAccounts = ({ user, page, items }: IUseFetchProps) => {

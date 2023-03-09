@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { FaPlusCircle } from "react-icons/fa";
-import { IExpense } from "../../../types/Expense";
-import { PaginationMetadata } from "../../../types/Pagination";
-import { Collapsable } from "../../common/Collapsable";
-import { LoaderSpinner } from "../../common/Loader";
+
+import { Collapsable } from "@components/common/Collapsable";
+import { LoaderSpinner } from "@components/common/Loader";
+import { IExpense } from "@interfaces/expense";
+import { PaginationMetadata } from "@interfaces/pagination";
 import { Expense } from "./components/Expense";
 import ModalNewExpense from "./components/ModalNewExpense";
 

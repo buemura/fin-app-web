@@ -1,4 +1,4 @@
-import { User } from "../../types/User";
+import { User } from "@interfaces/user";
 import { api } from "./api";
 
 type GetUserDataRequestProps = {

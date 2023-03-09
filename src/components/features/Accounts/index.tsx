@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { FaPlusCircle } from "react-icons/fa";
-import { IAccounts } from "../../../types/Account";
-import { PaginationMetadata } from "../../../types/Pagination";
-import { Collapsable } from "../../common/Collapsable";
+
+import { Collapsable } from "@components/common/Collapsable";
+import { IAccounts } from "@interfaces/account";
+import { PaginationMetadata } from "@interfaces/pagination";
 import AccountsData from "./components/AccountsData";
 import ModalNewAccount from "./components/ModalNewAccount";
 import TotalBalance from "./components/TotalBalance";

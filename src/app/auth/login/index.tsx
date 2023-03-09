@@ -1,10 +1,11 @@
 import { FormEvent, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Button } from "../../../components/features/AuthForm/Button";
-import { Input } from "../../../components/features/AuthForm/Input";
-import { useRouterNavigate } from "../../../hooks/useRouterNavigate";
-import { authService } from "../../../services/http/auth-service";
-import { useUserStore } from "../../../stores/user";
+
+import { Button } from "@components/features/AuthForm/Button";
+import { Input } from "@components/features/AuthForm/Input";
+import { useRouterNavigate } from "@hooks/useRouterNavigate";
+import { authService } from "@services/http/auth-service";
+import { useUserStore } from "@stores/user";
 
 export default function Login() {
   const { user, setUser } = useUserStore();

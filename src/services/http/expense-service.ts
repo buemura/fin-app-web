@@ -1,5 +1,5 @@
-import { IExpense } from "../../types/Expense";
-import { PaginationMetadata } from "../../types/Pagination";
+import { IExpense } from "@interfaces/expense";
+import { PaginationMetadata } from "@interfaces/pagination";
 import { api } from "./api";
 
 type FetchAllProps = {

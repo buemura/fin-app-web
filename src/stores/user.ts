@@ -1,6 +1,7 @@
 import { create } from "zustand";
 import { createJSONStorage, devtools, persist } from "zustand/middleware";
-import { User } from "../types/User";
+
+import { User } from "@interfaces/user";
 
 type State = {
   user: User | null;

@@ -1,5 +1,5 @@
-import { IAccount, IAccounts } from "../../types/Account";
-import { PaginationMetadata } from "../../types/Pagination";
+import { IAccount, IAccounts } from "@interfaces/account";
+import { PaginationMetadata } from "@interfaces/pagination";
 import { api } from "./api";
 
 type FetchAllProps = {

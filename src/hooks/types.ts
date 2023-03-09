@@ -1,4 +1,4 @@
-import { User } from "../types/User";
+import { User } from "@interfaces/user";
 
 export interface IUseFetchProps {
   user: User | null;

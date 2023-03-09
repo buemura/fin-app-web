@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { formatDate } from "../../../../helpers/date";
-import { IExpense } from "../../../../types/Expense";
+
+import { formatDate } from "@helpers/date";
+import { IExpense } from "@interfaces/expense";
 import ExpensePaymentStatus from "./ExpensePaymentStatus";
 import ModalUpdateExpense from "./ModalUpdateExpense";
 

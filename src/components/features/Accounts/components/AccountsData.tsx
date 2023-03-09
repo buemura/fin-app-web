@@ -1,10 +1,10 @@
-import { IAccounts } from "../../../../types/Account";
 import {
   backgroundColor,
   borderColor,
-} from "../../../common/Charts/helpers/constants";
-import PieChart from "../../../common/Charts/PieChart";
-import { LoaderSpinner } from "../../../common/Loader";
+} from "@components/common/Charts/helpers/constants";
+import PieChart from "@components/common/Charts/PieChart";
+import { LoaderSpinner } from "@components/common/Loader";
+import { IAccounts } from "@interfaces/account";
 import Account from "./Account";
 
 interface AccountsDataProps {

@@ -1,9 +1,10 @@
 import { useState } from "react";
-import { expenseService } from "../../../../services/http/expense-service";
-import { useUserStore } from "../../../../stores/user";
-import { IExpense } from "../../../../types/Expense";
-import { Modal } from "../../../common/Modal";
-import { ModalInput } from "../../../common/Modal/Input";
+
+import { Modal } from "@components/common/Modal";
+import { ModalInput } from "@components/common/Modal/Input";
+import { IExpense } from "@interfaces/expense";
+import { expenseService } from "@services/http/expense-service";
+import { useUserStore } from "@stores/user";
 
 interface ModalUpdateExpenseProps {
   isModalOpen: boolean;

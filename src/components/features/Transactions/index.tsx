@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { AiFillPlusCircle } from "react-icons/ai";
 import { FcBarChart } from "react-icons/fc";
-import { useUserStore } from "../../../stores/user";
-import { Modal } from "../../common/Modal";
-import { ModalInput } from "../../common/Modal/Input";
+
+import { Modal } from "@components/common/Modal";
+import { ModalInput } from "@components/common/Modal/Input";
+import { useUserStore } from "@stores/user";
 
 export function Transactions() {
   const { user } = useUserStore();

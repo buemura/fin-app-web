@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { FormattedDate, FormattedNumber } from "react-intl";
-import { usePreferenceStore } from "../../../../stores/preferences";
-import { IAccount } from "../../../../types/Account";
+
+import { IAccount } from "@interfaces/account";
+import { usePreferenceStore } from "@stores/preferences";
 import ModalUpdateAccount from "./ModalUpdateAccount";
 
 interface AccountProps {
