@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import { FormEvent, useEffect, useState } from "react";
 import { Button } from "../../../components/features/AuthForm/Button";
 import { Input } from "../../../components/features/AuthForm/Input";
@@ -10,6 +10,7 @@ import { useUserStore } from "../../../stores/user";
 
 export default function Login() {
   const router = useRouter();
+
   const { user, setUser } = useUserStore();
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -38,7 +39,7 @@ export default function Login() {
   };
 
   useEffect(() => {
-    if (user) {
+    if (user?.accessToken) {
       router.push("/");
     }
   }, [user]);

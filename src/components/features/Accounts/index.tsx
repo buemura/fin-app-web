@@ -14,7 +14,7 @@ interface AccountsProps {
   setAccountsPagination: (data: PaginationMetadata) => void;
 }
 
-export default function Accounts({
+export function Accounts({
   accounts,
   isLoading,
   accountsPagination,
