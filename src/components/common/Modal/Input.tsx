@@ -1,3 +1,5 @@
+"use client";
+
 interface InputProps {
   labelText: string;
   inputId: string;

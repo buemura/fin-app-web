@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 import { AiFillPlusCircle } from "react-icons/ai";
 import { FcBarChart } from "react-icons/fc";

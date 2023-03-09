@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 import { accountService } from "../../../../services/http/account-service";
 import { useUserStore } from "../../../../stores/user";

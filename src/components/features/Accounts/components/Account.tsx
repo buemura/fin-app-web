@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 import { FormattedDate, FormattedNumber } from "react-intl";
 

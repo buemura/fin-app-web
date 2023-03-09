@@ -1,3 +1,5 @@
+"use client";
+
 import { FiLogOut } from "react-icons/fi";
 
 interface SignOutButtonProps {

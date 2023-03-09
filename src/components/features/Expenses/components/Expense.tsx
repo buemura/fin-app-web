@@ -1,9 +1,11 @@
+"use client";
+
 import { useState } from "react";
 
-import { formatDate } from "../../../../utils/date";
 import { IExpense } from "../../../../types/Expense";
-import ModalUpdateExpense from "./ModalUpdateExpense";
+import { formatDate } from "../../../../utils/date";
 import ExpensePaymentStatus from "./ExpensePaymentStatus";
+import ModalUpdateExpense from "./ModalUpdateExpense";
 
 interface ExpenseProps {
   expense: IExpense;

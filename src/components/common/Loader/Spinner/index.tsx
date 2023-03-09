@@ -1,11 +1,13 @@
+"use client";
+
 import { Oval } from "react-loader-spinner";
 import {
+  loaderHeight,
   loaderPrimaryColor,
   loaderSecondaryColor,
   loaderStrokeWidth,
   loaderStrokeWidthSecondary,
   loaderWidth,
-  loaderHeight,
 } from "../helpers";
 
 interface LoaderProps {

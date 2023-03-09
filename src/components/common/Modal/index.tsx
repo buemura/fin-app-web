@@ -1,3 +1,5 @@
+"use client";
+
 import { LoaderSpinner } from "../Loader";
 
 interface InputProps {
