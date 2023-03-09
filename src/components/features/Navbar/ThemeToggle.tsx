@@ -1,5 +1,3 @@
-"use client";
-
 import { FiSun } from "react-icons/fi";
 
 export default function ThemeToggle() {

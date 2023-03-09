@@ -1,5 +1,3 @@
-"use client";
-
 import { useState } from "react";
 import { SlArrowDown, SlArrowUp } from "react-icons/sl";
 

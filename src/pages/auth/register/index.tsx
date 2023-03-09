@@ -1,15 +1,13 @@
-"use client";
-
-import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { FormEvent, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
-import { Button } from "../../../components/features/AuthForm/Button";
-import { Input } from "../../../components/features/AuthForm/Input";
 import { userService } from "../../../services/http/user-service";
+import { Input } from "../../../components/features/AuthForm/Input";
+import { Button } from "../../../components/features/AuthForm/Button";
 
 export default function Register() {
-  const router = useRouter();
+  const navigate = useNavigate();
+
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -22,7 +20,7 @@ export default function Register() {
     try {
       await userService.register({ name, email, password });
       setIsLoading(false);
-      router.push("/auth/login");
+      navigate("/auth/login");
     } catch (error: any) {
       alert("Registration failed");
       location.reload();
@@ -46,10 +44,7 @@ export default function Register() {
 
         <div className="flex mt-4">
           <p className=" text-neutral-400">Already registered?&nbsp;</p>
-          <Link
-            className="text-neutral-500 hover:underline"
-            href={"/auth/login"}
-          >
+          <Link className="text-neutral-500 hover:underline" to={"/auth/login"}>
             Click hete to sign in
           </Link>
         </div>

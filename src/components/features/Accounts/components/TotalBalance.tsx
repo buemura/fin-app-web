@@ -1,5 +1,3 @@
-"use client";
-
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { FormattedNumber } from "react-intl";
 import { usePreferenceStore } from "../../../../stores/preferences";

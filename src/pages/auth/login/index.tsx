@@ -1,16 +1,13 @@
-"use client";
-
-import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { FormEvent, useEffect, useState } from "react";
-import { Button } from "../../../components/features/AuthForm/Button";
-import { Input } from "../../../components/features/AuthForm/Input";
-import { userService } from "../../../services/http/user-service";
+import { Link, useNavigate } from "react-router-dom";
+
 import { useUserStore } from "../../../stores/user";
+import { userService } from "../../../services/http/user-service";
+import { Input } from "../../../components/features/AuthForm/Input";
+import { Button } from "../../../components/features/AuthForm/Button";
 
 export default function Login() {
-  const router = useRouter();
-
+  const navigate = useNavigate();
   const { user, setUser } = useUserStore();
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -31,7 +28,7 @@ export default function Login() {
         accessToken: data?.accessToken || "",
       });
       setIsLoading(false);
-      router.push("/");
+      navigate("/");
     } catch (error: any) {
       alert("Authentication failed");
       location.reload();
@@ -39,8 +36,8 @@ export default function Login() {
   };
 
   useEffect(() => {
-    if (user?.accessToken) {
-      router.push("/");
+    if (user) {
+      return navigate("/");
     }
   }, [user]);
 
@@ -62,7 +59,7 @@ export default function Login() {
           <p className=" text-neutral-400">Not registered yet?&nbsp;</p>
           <Link
             className="text-neutral-500 hover:underline"
-            href={"/auth/register"}
+            to={"/auth/register"}
           >
             Click hete to sign up
           </Link>

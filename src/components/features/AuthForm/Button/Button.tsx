@@ -1,5 +1,3 @@
-"use client";
-
 import { LoaderSpinner } from "../../../common/Loader";
 
 interface ButtonProps {

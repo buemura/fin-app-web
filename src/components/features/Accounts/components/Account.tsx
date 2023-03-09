@@ -1,10 +1,8 @@
-"use client";
-
 import { useState } from "react";
-import { FormattedDate, FormattedNumber } from "react-intl";
+import { FormattedNumber, FormattedDate } from "react-intl";
 
-import { usePreferenceStore } from "../../../../stores/preferences";
 import { IAccount } from "../../../../types/Account";
+import { usePreferenceStore } from "../../../../stores/preferences";
 import ModalUpdateAccount from "./ModalUpdateAccount";
 
 interface AccountProps {
