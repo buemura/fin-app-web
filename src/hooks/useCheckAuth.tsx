@@ -1,11 +1,11 @@
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { userService } from "../services/http/user-service";
 import { User } from "../types/User";
 
 export const useCheckAuth = (user: User | null) => {
   const [hasError, setHasError] = useState(false);
-  const navigate = useNavigate();
+  const router = useRouter();
 
   const fetchUserData = async () => {
     try {
@@ -20,7 +20,7 @@ export const useCheckAuth = (user: User | null) => {
 
   useEffect(() => {
     if (!user) {
-      return navigate("/auth/login");
+      return router.push("/auth/login");
     }
 
     fetchUserData();
