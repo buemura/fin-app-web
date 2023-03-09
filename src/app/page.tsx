@@ -38,7 +38,8 @@ export default function Home() {
   });
 
   return (
-    <IntlProvider locale={navigator.language}>
+    // FIXME: Change this to user locale
+    <IntlProvider locale={"en"}>
       <div className="min-w-screen min-h-screen bg-gray-100">
         <Navbar user={user} />
 
