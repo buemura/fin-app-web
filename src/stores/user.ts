@@ -1,5 +1,5 @@
-import create from "zustand";
-import { devtools, persist } from "zustand/middleware";
+import { create } from "zustand";
+import { createJSONStorage, devtools, persist } from "zustand/middleware";
 
 import { User } from "../types/User";
 
@@ -23,7 +23,7 @@ export const useUserStore = create<State>()(
       }),
       {
         name: "user-storage",
-        getStorage: () => localStorage,
+        storage: createJSONStorage(() => localStorage),
       }
     )
   )

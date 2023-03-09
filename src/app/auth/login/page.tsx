@@ -1,13 +1,16 @@
-import { FormEvent, useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+"use client";
 
-import { useUserStore } from "../../../stores/user";
-import { userService } from "../../../services/http/user-service";
-import { Input } from "../../../components/features/AuthForm/Input";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { FormEvent, useEffect, useState } from "react";
 import { Button } from "../../../components/features/AuthForm/Button";
+import { Input } from "../../../components/features/AuthForm/Input";
+import { userService } from "../../../services/http/user-service";
+import { useUserStore } from "../../../stores/user";
 
 export default function Login() {
-  const navigate = useNavigate();
+  const router = useRouter();
+
   const { user, setUser } = useUserStore();
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -28,7 +31,7 @@ export default function Login() {
         accessToken: data?.accessToken || "",
       });
       setIsLoading(false);
-      navigate("/");
+      router.push("/");
     } catch (error: any) {
       alert("Authentication failed");
       location.reload();
@@ -36,8 +39,8 @@ export default function Login() {
   };
 
   useEffect(() => {
-    if (user) {
-      return navigate("/");
+    if (user?.accessToken) {
+      router.push("/");
     }
   }, [user]);
 
@@ -59,7 +62,7 @@ export default function Login() {
           <p className=" text-neutral-400">Not registered yet?&nbsp;</p>
           <Link
             className="text-neutral-500 hover:underline"
-            to={"/auth/register"}
+            href={"/auth/register"}
           >
             Click hete to sign up
           </Link>
