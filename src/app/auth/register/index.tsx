@@ -1,12 +1,13 @@
 import { FormEvent, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-import { userService } from "../../../services/http/user-service";
-import { Input } from "../../../components/features/AuthForm/Input";
 import { Button } from "../../../components/features/AuthForm/Button";
+import { Input } from "../../../components/features/AuthForm/Input";
+import { useRouterNavigate } from "../../../hooks/useRouterNavigate";
+import { authService } from "../../../services/http/auth-service";
 
 export default function Register() {
-  const navigate = useNavigate();
+  const { routerNavigate } = useRouterNavigate();
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [name, setName] = useState("");
@@ -18,9 +19,9 @@ export default function Register() {
     setIsLoading(true);
 
     try {
-      await userService.register({ name, email, password });
+      await authService.register({ name, email, password });
       setIsLoading(false);
-      navigate("/auth/login");
+      return routerNavigate("/auth/login");
     } catch (error: any) {
       alert("Registration failed");
       location.reload();

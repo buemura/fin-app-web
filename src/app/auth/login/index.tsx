@@ -1,14 +1,15 @@
 import { FormEvent, useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-import { useUserStore } from "../../../stores/user";
-import { userService } from "../../../services/http/user-service";
-import { Input } from "../../../components/features/AuthForm/Input";
 import { Button } from "../../../components/features/AuthForm/Button";
+import { Input } from "../../../components/features/AuthForm/Input";
+import { useRouterNavigate } from "../../../hooks/useRouterNavigate";
+import { authService } from "../../../services/http/auth-service";
+import { useUserStore } from "../../../stores/user";
 
 export default function Login() {
-  const navigate = useNavigate();
   const { user, setUser } = useUserStore();
+  const { routerNavigate } = useRouterNavigate();
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [email, setEmail] = useState("");
@@ -19,7 +20,7 @@ export default function Login() {
     setIsLoading(true);
 
     try {
-      const data = await userService.login({ email, password });
+      const data = await authService.login({ email, password });
       setUser({
         id: data?.user.id || "",
         name: data?.user.name || "",
@@ -28,7 +29,7 @@ export default function Login() {
         accessToken: data?.accessToken || "",
       });
       setIsLoading(false);
-      navigate("/");
+      return routerNavigate("/");
     } catch (error: any) {
       alert("Authentication failed");
       location.reload();
@@ -37,7 +38,7 @@ export default function Login() {
 
   useEffect(() => {
     if (user) {
-      return navigate("/");
+      return routerNavigate("/");
     }
   }, [user]);
 

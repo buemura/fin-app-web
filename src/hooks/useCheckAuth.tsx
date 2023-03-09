@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { userService } from "../services/http/user-service";
 import { User } from "../types/User";
+import { useRouterNavigate } from "./useRouterNavigate";
 
 export const useCheckAuth = (user: User | null) => {
+  const { routerNavigate } = useRouterNavigate();
   const [hasError, setHasError] = useState(false);
-  const navigate = useNavigate();
 
   const fetchUserData = async () => {
     try {
@@ -20,7 +20,7 @@ export const useCheckAuth = (user: User | null) => {
 
   useEffect(() => {
     if (!user) {
-      return navigate("/auth/login");
+      return routerNavigate("/auth/login");
     }
 
     fetchUserData();
