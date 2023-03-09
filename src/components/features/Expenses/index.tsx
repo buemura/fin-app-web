@@ -1,12 +1,11 @@
 import { useState } from "react";
 import { FaPlusCircle } from "react-icons/fa";
-
 import { IExpense } from "../../../types/Expense";
-import { Expense } from "./components/Expense";
-import { LoaderSpinner } from "../../common/Loader";
-import ModalNewExpense from "./components/ModalNewExpense";
-import { Collapsable } from "../../common/Collapsable";
 import { PaginationMetadata } from "../../../types/Pagination";
+import { Collapsable } from "../../common/Collapsable";
+import { LoaderSpinner } from "../../common/Loader";
+import { Expense } from "./components/Expense";
+import ModalNewExpense from "./components/ModalNewExpense";
 
 interface ExpensesProps {
   expenses: IExpense[] | null;

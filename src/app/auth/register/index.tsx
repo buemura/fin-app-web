@@ -1,6 +1,5 @@
 import { FormEvent, useState } from "react";
 import { Link } from "react-router-dom";
-
 import { Button } from "../../../components/features/AuthForm/Button";
 import { Input } from "../../../components/features/AuthForm/Input";
 import { useRouterNavigate } from "../../../hooks/useRouterNavigate";

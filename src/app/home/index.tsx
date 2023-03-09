@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Accounts from "../../components/features/Accounts";
+import { Accounts } from "../../components/features/Accounts";
 import { Expenses } from "../../components/features/Expenses";
 import { Navbar } from "../../components/features/Navbar";
 import { useCheckAuth } from "../../hooks/useCheckAuth";

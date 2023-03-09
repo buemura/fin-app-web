@@ -1,9 +1,9 @@
-import { IAccount, IAccounts } from "../../../../types/Account";
-import PieChart from "../../../common/Charts/PieChart";
+import { IAccounts } from "../../../../types/Account";
 import {
   backgroundColor,
   borderColor,
 } from "../../../common/Charts/helpers/constants";
+import PieChart from "../../../common/Charts/PieChart";
 import { LoaderSpinner } from "../../../common/Loader";
 import Account from "./Account";
 

@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-
 import { EXPENSES_DEFAULT_PAGINATION } from "../helpers/constants";
 import { expenseService } from "../services/http/expense-service";
 import { IExpense } from "../types/Expense";

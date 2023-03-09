@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-
 import { ACCOUNTS_DEFAULT_PAGINATION } from "../helpers/constants";
 import { accountService } from "../services/http/account-service";
 import { IAccounts } from "../types/Account";

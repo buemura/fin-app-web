@@ -1,18 +1,11 @@
 import { useState } from "react";
 import { FaPlusCircle } from "react-icons/fa";
 import { IAccounts } from "../../../types/Account";
-import { LoaderSpinner } from "../../common/Loader";
-import Account from "./components/Account";
+import { PaginationMetadata } from "../../../types/Pagination";
+import { Collapsable } from "../../common/Collapsable";
+import AccountsData from "./components/AccountsData";
 import ModalNewAccount from "./components/ModalNewAccount";
 import TotalBalance from "./components/TotalBalance";
-import PieChart from "../../common/Charts/PieChart";
-import {
-  backgroundColor,
-  borderColor,
-} from "../../common/Charts/helpers/constants";
-import AccountsData from "./components/AccountsData";
-import { Collapsable } from "../../common/Collapsable";
-import { PaginationMetadata } from "../../../types/Pagination";
 
 interface AccountsProps {
   accounts: IAccounts | null;
@@ -21,7 +14,7 @@ interface AccountsProps {
   setAccountsPagination: (data: PaginationMetadata) => void;
 }
 
-export default function Accounts({
+export function Accounts({
   accounts,
   isLoading,
   accountsPagination,

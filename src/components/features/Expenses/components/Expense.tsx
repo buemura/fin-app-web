@@ -1,5 +1,4 @@
 import { useState } from "react";
-
 import { formatDate } from "../../../../helpers/date";
 import { IExpense } from "../../../../types/Expense";
 import ExpensePaymentStatus from "./ExpensePaymentStatus";
