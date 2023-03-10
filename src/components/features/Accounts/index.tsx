@@ -11,15 +11,15 @@ import TotalBalance from "./components/TotalBalance";
 interface AccountsProps {
   accounts: IAccounts | null;
   isLoading: boolean;
-  accountsPagination: PaginationMetadata;
-  setAccountsPagination: (data: PaginationMetadata) => void;
+  pagination: PaginationMetadata;
+  setPagination: (data: PaginationMetadata) => void;
 }
 
 export function Accounts({
   accounts,
   isLoading,
-  accountsPagination,
-  setAccountsPagination,
+  pagination,
+  setPagination,
 }: AccountsProps) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 

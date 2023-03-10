@@ -11,15 +11,15 @@ import ModalNewExpense from "./components/ModalNewExpense";
 interface ExpensesProps {
   expenses: IExpense[] | null;
   isLoading: boolean;
-  expensesPagination: PaginationMetadata;
-  setExpensesPagination: (data: PaginationMetadata) => void;
+  pagination: PaginationMetadata;
+  setPagination: (data: PaginationMetadata) => void;
 }
 
 export function Expenses({
   expenses,
   isLoading,
-  expensesPagination,
-  setExpensesPagination,
+  pagination,
+  setPagination,
 }: ExpensesProps) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -42,14 +42,11 @@ export function Expenses({
           />
         </div>
       ) : (
-        <>
-          <ul>
-            {expenses?.map((expense) => (
-              <Expense key={expense.id} expense={expense} />
-            ))}
-          </ul>
-          <span></span>
-        </>
+        <ul>
+          {expenses?.map((expense) => (
+            <Expense key={expense.id} expense={expense} />
+          ))}
+        </ul>
       )}
 
       <ModalNewExpense

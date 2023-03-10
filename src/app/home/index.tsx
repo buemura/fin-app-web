@@ -2,10 +2,12 @@ import { useState } from "react";
 
 import { Accounts } from "@components/features/Accounts";
 import { Expenses } from "@components/features/Expenses";
+import { Investments } from "@components/features/Investments";
 import { Navbar } from "@components/features/Navbar";
 import { useCheckAuth } from "@hooks/useCheckAuth";
 import { useFetchAccounts } from "@hooks/useFetchAccounts";
 import { useFetchExpenses } from "@hooks/useFetchExpenses";
+import { useFetchInvestments } from "@hooks/useFetchInvestments";
 import { useUserStore } from "@stores/user";
 
 export default function Home() {
@@ -23,6 +25,8 @@ export default function Home() {
 
   const [expensesPagination, setExpensesPagination] = useState(defaultPag);
   const [accountsPagination, setAccountsPagination] = useState(defaultPag);
+  const [investmentsPagination, setInvestmentsPagination] =
+    useState(defaultPag);
 
   const { expenses, isLoading: isExpensesLoading } = useFetchExpenses({
     user,
@@ -34,6 +38,11 @@ export default function Home() {
     page: accountsPagination.page,
     items: accountsPagination.items,
   });
+  const { investments, isLoading: isInvestmentsLoading } = useFetchInvestments({
+    user,
+    page: investmentsPagination.page,
+    items: investmentsPagination.items,
+  });
 
   return (
     <div className="min-w-screen min-h-screen bg-gray-100">
@@ -43,14 +52,20 @@ export default function Home() {
         <Expenses
           expenses={expenses}
           isLoading={isExpensesLoading}
-          expensesPagination={expensesPagination}
-          setExpensesPagination={setExpensesPagination}
+          pagination={expensesPagination}
+          setPagination={setExpensesPagination}
         />
         <Accounts
           accounts={accounts}
           isLoading={isAccountsLoading}
-          accountsPagination={accountsPagination}
-          setAccountsPagination={setAccountsPagination}
+          pagination={accountsPagination}
+          setPagination={setAccountsPagination}
+        />
+        <Investments
+          investments={investments}
+          isLoading={isInvestmentsLoading}
+          pagination={investmentsPagination}
+          setPagination={setInvestmentsPagination}
         />
         {/* <Transactions /> */}
       </div>
