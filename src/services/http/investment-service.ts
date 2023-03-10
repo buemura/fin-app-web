@@ -1,4 +1,4 @@
-import { IExpense } from "@interfaces/expense";
+import { IInvestment } from "@interfaces/investment";
 import { PaginationMetadata } from "@interfaces/pagination";
 import { api } from "./api";
 
@@ -36,7 +36,7 @@ async function fetchAll({
   userId,
   accessToken,
   pagination,
-}: FetchAllProps): Promise<IExpense[]> {
+}: FetchAllProps): Promise<IInvestment[]> {
   const url = `/users/${userId}/investments?page=${pagination?.page}&items=${pagination?.items}`;
   const { data: response } = await api.get(url, {
     headers: { Authorization: `Bearer ${accessToken}` },
