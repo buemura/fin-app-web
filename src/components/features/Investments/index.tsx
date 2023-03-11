@@ -8,7 +8,7 @@ import { IInvestment } from "../../../interfaces/investment";
 import { PaginationMetadata } from "../../../interfaces/pagination";
 import { Collapsable } from "../../common/Collapsable";
 import { LoaderSpinner } from "../../common/Loader";
-import { Investment } from "./components/Investment";
+import InvestmentsData from "./components/InvestmentsData";
 import { ModalNewInvestment } from "./components/ModalNewInvestment";
 import { MESSAGES } from "./helpers/messages";
 
@@ -67,22 +67,7 @@ export function Investments({
         />
       </div>
 
-      {isLoading ? (
-        <div className="flex justify-center items-center">
-          <LoaderSpinner
-            width={50}
-            height={50}
-            primaryColor="#2757a3"
-            secondaryColor="#95b8f0"
-          />
-        </div>
-      ) : (
-        <ul>
-          {investments?.map((investment) => (
-            <Investment key={investment.id} investment={investment} />
-          ))}
-        </ul>
-      )}
+      <InvestmentsData isLoading={isLoading} investments={investments} />
 
       <ModalNewInvestment
         isModalOpen={isModalOpen}

@@ -2,10 +2,9 @@ import { useState } from "react";
 import { FaPlusCircle } from "react-icons/fa";
 
 import { Collapsable } from "@components/common/Collapsable";
-import { LoaderSpinner } from "@components/common/Loader";
 import { IExpense } from "@interfaces/expense";
 import { PaginationMetadata } from "@interfaces/pagination";
-import { Expense } from "./components/Expense";
+import ExpensesData from "./components/ExpensesData";
 import ModalNewExpense from "./components/ModalNewExpense";
 
 interface ExpensesProps {
@@ -32,22 +31,7 @@ export function Expenses({
         />
       </div>
 
-      {isLoading ? (
-        <div className="flex justify-center items-center">
-          <LoaderSpinner
-            width={50}
-            height={50}
-            primaryColor="#2757a3"
-            secondaryColor="#95b8f0"
-          />
-        </div>
-      ) : (
-        <ul>
-          {expenses?.map((expense) => (
-            <Expense key={expense.id} expense={expense} />
-          ))}
-        </ul>
-      )}
+      <ExpensesData isLoading={isLoading} expenses={expenses} />
 
       <ModalNewExpense
         isModalOpen={isModalOpen}
